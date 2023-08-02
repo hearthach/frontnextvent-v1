@@ -43,18 +43,18 @@ export default function AboutTeam() {
     <Container component={MotionViewport} sx={{ textAlign: 'center', py: { xs: 10, md: 15 } }}>
       <m.div variants={varFade().inDown}>
         <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-          Dream team
+          Zilex Perú
         </Typography>
       </m.div>
 
       <m.div variants={varFade().inUp}>
         <Typography variant="h2" sx={{ my: 3 }}>
-          Great team is the key
+          Lo mas vendido en Zilex
         </Typography>
       </m.div>
 
       <m.div variants={varFade().inUp}>
-        <Typography
+        {/* <Typography
           sx={{
             mx: 'auto',
             maxWidth: 640,
@@ -63,7 +63,7 @@ export default function AboutTeam() {
         >
           Minimal will provide you support if you have any problems, our support team will reply
           within a day and we also have detailed documentation.
-        </Typography>
+        </Typography> */}
       </m.div>
 
       <Box sx={{ position: 'relative' }}>
@@ -103,7 +103,7 @@ export default function AboutTeam() {
         </CarouselArrows>
       </Box>
 
-      <Button
+      {/* <Button
         size="large"
         color="inherit"
         variant="outlined"
@@ -111,7 +111,7 @@ export default function AboutTeam() {
         sx={{ mx: 'auto' }}
       >
         All Members
-      </Button>
+      </Button> */}
     </Container>
   );
 }

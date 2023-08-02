@@ -42,6 +42,9 @@ export const paths = {
     demo: {
       details: `/product/${MOCK_ID}`,
     },
+    category:{
+      polos: `/polos1`,
+    },
   },
   post: {
     root: `/post`,
