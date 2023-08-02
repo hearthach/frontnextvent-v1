@@ -71,7 +71,5 @@ export const _mock = {
     company: (index) => `${ASSETS_API}/assets/images/company/company_${index + 1}.png`,
     product: (index) => `${ASSETS_API}/assets/images/m_product/product_${index + 1}.jpg`,
     portrait: (index) => `${ASSETS_API}/assets/images/portrait/portrait_${index + 1}.jpg`,
-    // ZILEX
-    // product: (index) => `${ASSETS_API}/assets/images/m_product/zilex/polo_${index + 1}.jpg`,
   },
 };

@@ -12,15 +12,15 @@ import AboutTestimonials from '../about-testimonials';
 export default function AboutView() {
   return (
     <>
-      <AboutHero />
+      {/* <AboutHero /> */}
 
-      <AboutWhat />
+      {/* <AboutWhat /> */}
 
-      <AboutVision />
+      {/* <AboutVision /> */}
 
       <AboutTeam />
 
-      <AboutTestimonials />
+      {/* <AboutTestimonials /> */}
     </>
   );
 }
