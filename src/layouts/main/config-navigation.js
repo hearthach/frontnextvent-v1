@@ -12,10 +12,6 @@ const subheaderStyle = {
   fontWeight: 'bold', // Texto en negrita
 };
 
-const subheaderHoverStyle = {
-  color: 'green', // Color de texto verde cuando se pase el mouse
-};
-
 export const navConfig = [
   {
     title: 'Inicio',
@@ -46,24 +42,48 @@ export const navConfig = [
         ],
       },
       {
-        subheader: 'POLERAS',
+        subheader: (
+          <a
+            href={paths.product.category.poleras.root}
+            style={subheaderStyle}
+            onMouseEnter={(e) => e.target.style.color = '#00A76F'} // Cambia a verde cuando se pase el mouse
+            onMouseLeave={(e) => e.target.style.color = 'black'} // Vuelve al color negro cuando se deje de pasar el mouse
+          >
+            POLERAS
+          </a>
+        ),
         items: [
-          { title: 'Poleras', path: paths.product.category.poleras },
+          { title: 'Poleras', path: paths.product.category.poleras.root },
         ],
       },
       {
-        subheader: 'Auth Demo',
+        subheader: (
+          <a
+            href={paths.product.category.shorts.root}
+            style={subheaderStyle}
+            onMouseEnter={(e) => e.target.style.color = '#00A76F'} // Cambia a verde cuando se pase el mouse
+            onMouseLeave={(e) => e.target.style.color = 'black'} // Vuelve al color negro cuando se deje de pasar el mouse
+          >
+            SHORTS
+          </a>
+        ),
         items: [
-          { title: 'New password (modern)', path: paths.authDemo.modern.newPassword },
-          { title: 'Verify (modern)', path: paths.authDemo.modern.verify },
+          { title: 'Shorts', path: paths.product.category.shorts.root },
         ],
       },
       {
-        subheader: 'Error',
+        subheader: (
+          <a
+            href={paths.product.category.pantalones.root}
+            style={subheaderStyle}
+            onMouseEnter={(e) => e.target.style.color = '#00A76F'} // Cambia a verde cuando se pase el mouse
+            onMouseLeave={(e) => e.target.style.color = 'black'} // Vuelve al color negro cuando se deje de pasar el mouse
+          >
+            PANTALONES
+          </a>
+        ),
         items: [
-          { title: 'Page 403', path: paths.page403 },
-          { title: 'Page 404', path: paths.page404 },
-          { title: 'Page 500', path: paths.page500 },
+          { title: 'Pantalones', path: paths.product.category.pantalones.root },
         ],
       },
     ],

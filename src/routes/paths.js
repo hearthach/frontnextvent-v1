@@ -49,7 +49,15 @@ export const paths = {
         jersey201: `/product/category/polos/jersey201`,
         pima: `/product/category/polos/pima`,
       },
-      poleras: `/product/category/poleras`,
+      poleras: {
+        root: `/product/category/poleras`,
+      },
+      shorts: {
+        root: `/product/category/shorts`,
+      },
+      pantalones: {
+        root: `/product/category/pantalones`,
+      },
     },
   },
   post: {
