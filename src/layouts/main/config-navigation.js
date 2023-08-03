@@ -22,21 +22,22 @@ export const navConfig = [
       {
         subheader: 'Polos',
         items: [
-          { title: 'Polos 1', path: paths.about },
-          { title: 'Polos 2', path: paths.contact },
-          { title: 'Polos 3', path: paths.faqs },
-          { title: 'Polos 4', path: paths.pricing },
-          { title: 'Polos 5', path: paths.payment },
+          { title: 'Polos 1', path: paths.product.category.polos },
+          { title: 'Jersey 30/1', path: paths.product.category.polos.jersey301 },
+          // { title: 'Camiseros', path: paths.product.category.polosCamiseros },
+          // { title: 'Clásicos', path: paths.product.category.polosClasicos },
+          // { title: 'Manga Larga', path: paths.product.category.polosMangaLarga },
         ],
       },
       {
         subheader: 'Poleras',
         items: [
-          { title: 'Poleras 1', path: paths.product.root },
-          { title: 'Poleras 2', path: paths.product.demo.details },
-          { title: 'Poleras 3', path: paths.product.checkout },
-          { title: 'Poleras 4', path: paths.post.root },
-          { title: 'Poleras 5', path: paths.post.demo.details },
+          { title: 'Poleras 1', path: paths.product.category.poleras },
+          { title: 'Jackets', path: paths.product.category.polerasJackets },
+          { title: 'Cortavientos', path: paths.product.category.polerasCortavientos },
+          { title: 'Poleras Y Casacas', path: paths.product.category.polerasPolerasCasacas },
+          { title: 'Chompas', path: paths.product.category.polerasChompas },
+          { title: 'Camisas', path: paths.product.category.polerasCamisas },
         ],
       },
       {

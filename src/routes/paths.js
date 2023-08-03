@@ -42,9 +42,28 @@ export const paths = {
     demo: {
       details: `/product/${MOCK_ID}`,
     },
-    category:{
-      polos: `/polos1`,
+    // category: `/product/category/polos/jersey301`,
+    category: { 
+      polos: {
+        jersey301: `/product/category/polos/jersey301`,
+      },
     },
+            
+      // polos: `/product/category/polos`,
+      // polos: {
+      //   jersey301: `/product/category/polos/jersey301`,
+      // },
+    //   // polosOversize: `/product/category/polos/oversize`,
+    //   polosCamiseros: `/product/category/polos/camiseros`,
+    //   polosClasicos: `/product/category/polos/clasicos`,
+    //   polosMangaLarga: `/product/category/polos/mangalarga`,
+    //   poleras: `/product/category/poleras`,
+    //   polerasJackets: `/product/category/poleras/jackets`,
+    //   polerasCortavientos: `/product/category/poleras/cortavientos`,
+    //   polerasPolerasCasacas: `/product/category/poleras/polerascasacas`,
+    //   polerasChompas: `/product/category/poleras/chompas`,
+    //   polerasCamisas: `/product/category/poleras/camisas`,
+    // },
   },
   post: {
     root: `/post`,
