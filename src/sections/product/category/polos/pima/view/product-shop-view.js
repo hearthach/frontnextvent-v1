@@ -29,8 +29,6 @@ import {
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 //
-// import { useProduct } from '../hooks';
-// import { CartIcon } from '../_common';
 import { useProduct } from '../../../../hooks';
 import { CartIcon } from '../../../../_common';
 import ProductList from '../product-list';
@@ -67,7 +65,7 @@ const defaultFilters = {
 
 // ----------------------------------------------------------------------
 
-export default function ProductPolosOversizeShopView() {
+export default function ProductPolosPimaShopView() {
   useInitial();
 
   const settings = useSettingsContext();
@@ -199,7 +197,7 @@ export default function ProductPolosOversizeShopView() {
           my: { xs: 3, md: 5 },
         }}
       >
-        Polos OVERSIZE
+        Polos - PIMA
       </Typography>
 
       <Stack

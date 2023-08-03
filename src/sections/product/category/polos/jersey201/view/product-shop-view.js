@@ -29,10 +29,8 @@ import {
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 //
-// import { useProduct } from '../hooks';
-// import { CartIcon } from '../_common';
-import { useProduct } from '../../../hooks';
-import { CartIcon } from '../../../_common';
+import { useProduct } from '../../../../hooks';
+import { CartIcon } from '../../../../_common';
 import ProductList from '../product-list';
 import ProductSort from '../product-sort';
 import ProductSearch from '../product-search';
@@ -67,7 +65,7 @@ const defaultFilters = {
 
 // ----------------------------------------------------------------------
 
-export default function ProductPolerasShopView() {
+export default function ProductPolosJersey201ShopView() {
   useInitial();
 
   const settings = useSettingsContext();
@@ -199,7 +197,7 @@ export default function ProductPolerasShopView() {
           my: { xs: 3, md: 5 },
         }}
       >
-        Poleras - ZILEX
+        Polos - JERSEY 20/1
       </Typography>
 
       <Stack

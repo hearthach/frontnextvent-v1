@@ -29,8 +29,6 @@ import {
 import EmptyContent from 'src/components/empty-content';
 import { useSettingsContext } from 'src/components/settings';
 //
-// import { useProduct } from '../hooks';
-// import { CartIcon } from '../_common';
 import { useProduct } from '../../../hooks';
 import { CartIcon } from '../../../_common';
 import ProductList from '../product-list';
