@@ -59,7 +59,7 @@ export default function HomeView() {
         {/* 2-Moda */}
         <HomeMinimal />
 
-        {/* About */}
+        {/* Section-About */}
         <AboutTeam />
 
         {/* 8-Pricing */}      
