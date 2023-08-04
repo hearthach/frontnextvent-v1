@@ -196,6 +196,7 @@ export default function ProductShopDetailsView() {
           />
         )}
       </Card>
+      {renderSizeOptions}
     </>
   );
 

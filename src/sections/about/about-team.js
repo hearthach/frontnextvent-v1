@@ -1,26 +1,39 @@
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { m } from 'framer-motion';
-// @mui
-import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-// _mock
-import { _carouselsMembers, _socials } from 'src/_mock';
-// components
+import { useTheme } from '@mui/material/styles';
 import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
 import { MotionViewport, varFade } from 'src/components/animate';
-import Carousel, { CarouselArrows, useCarousel } from 'src/components/carousel';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Container from '@mui/material/Container';
 
-// ----------------------------------------------------------------------
+// Importamos el componente CarouselArrows
+import CarouselArrows from 'src/components/carousel/carousel-arrows';
+
+// Aquí definimos la lista de tallas que queremos mostrar
+const sizes = ["S", "M", "L", "XL"];
 
 export default function AboutTeam() {
-  const carousel = useCarousel({
+  const products = getProductsData(); // Reemplaza esta función por la que obtiene los datos de tus productos
+  const theme = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const settings = {
     infinite: false,
     slidesToShow: 4,
     responsive: [
@@ -37,7 +50,19 @@ export default function AboutTeam() {
         settings: { slidesToShow: 1 },
       },
     ],
-  });
+  };
+
+  // Definimos las funciones handleNext y handlePrev
+  const handleNext = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const handlePrev = () => {
+    sliderRef.current.slickPrev();
+  };
+
+  // Usamos useRef para obtener una referencia al componente Slider
+  const sliderRef = React.useRef(null);
 
   return (
     <Container component={MotionViewport} sx={{ textAlign: 'center', py: { xs: 10, md: 15 } }}>
@@ -46,113 +71,152 @@ export default function AboutTeam() {
           Zilex Perú
         </Typography>
       </m.div>
-
+    
       <m.div variants={varFade().inUp}>
         <Typography variant="h2" sx={{ my: 3 }}>
           Lo mas vendido en Zilex
         </Typography>
       </m.div>
+      <Box component={MotionViewport} sx={{ textAlign: 'center', py: { xs: 10, md: 15 } }}>
+        {/* Resto del código ... */}
 
-      <m.div variants={varFade().inUp}>
-        {/* <Typography
-          sx={{
-            mx: 'auto',
-            maxWidth: 640,
-            color: 'text.secondary',
-          }}
-        >
-          Minimal will provide you support if you have any problems, our support team will reply
-          within a day and we also have detailed documentation.
-        </Typography> */}
-      </m.div>
-
-      <Box sx={{ position: 'relative' }}>
-        <CarouselArrows
-          filled
-          shape="rounded"
-          onNext={carousel.onNext}
-          onPrev={carousel.onPrev}
-          leftButtonProps={{
-            sx: {
-              left: 24,
-              ...(_carouselsMembers.length < 5 && { display: 'none' }),
-            },
-          }}
-          rightButtonProps={{
-            sx: {
-              right: 24,
-              ...(_carouselsMembers.length < 5 && { display: 'none' }),
-            },
-          }}
-        >
-          <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-            {_carouselsMembers.map((member) => (
-              <Box
-                key={member.id}
-                component={m.div}
-                variants={varFade().in}
-                sx={{
-                  px: 1.5,
-                  py: { xs: 8, md: 10 },
-                }}
-              >
-                <MemberCard member={member} />
-              </Box>
-            ))}
-          </Carousel>
-        </CarouselArrows>
+        <Box sx={{ position: 'relative' }}>
+          {/* Usamos el componente CarouselArrows aquí */}
+          <CarouselArrows
+            filled
+            shape="rounded"
+            onNext={handleNext}
+            onPrev={handlePrev}
+            leftButtonProps={{
+              sx: {
+                left: 24,
+                ...(products.length < 5 && { display: 'none' }),
+              },
+            }}
+            rightButtonProps={{
+              sx: {
+                right: 24,
+                ...(products.length < 5 && { display: 'none' }),
+              },
+            }}
+          >
+            {/* Usamos useRef para obtener una referencia al componente Slider */}
+            <Slider ref={sliderRef} {...settings}>
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  sizes={sizes}
+                  theme={theme}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                />
+              ))}
+            </Slider>
+          </CarouselArrows>
+        </Box>
       </Box>
-
-      {/* <Button
-        size="large"
-        color="inherit"
-        variant="outlined"
-        endIcon={<Iconify icon="eva:arrow-ios-forward-fill" width={24} />}
-        sx={{ mx: 'auto' }}
-      >
-        All Members
-      </Button> */}
     </Container>
   );
 }
 
-// ----------------------------------------------------------------------
+function ProductCard({ product, sizes, theme, onMouseEnter, onMouseLeave }) {
+  const { name, price, imageUrl } = product;
+  const [hoveredSize, setHoveredSize] = useState(null);
 
-function MemberCard({ member }) {
-  const { name, role, avatarUrl } = member;
+  const handleMouseEnterSize = (size) => {
+    setHoveredSize(size);
+  };
+
+  const handleMouseLeaveSize = () => {
+    setHoveredSize(null);
+  };
+
   return (
+    
     <Card key={name}>
       <Typography variant="subtitle1" sx={{ mt: 2.5, mb: 0.5 }}>
         {name}
       </Typography>
 
       <Typography variant="body2" sx={{ mb: 2.5, color: 'text.secondary' }}>
-        {role}
+        {price}
       </Typography>
 
       <Box sx={{ px: 1 }}>
-        <Image alt={name} src={avatarUrl} ratio="1/1" sx={{ borderRadius: 2 }} />
+        <Image alt={name} src={imageUrl} ratio="1/1" sx={{ borderRadius: 2 }} />
       </Box>
 
       <Stack direction="row" alignItems="center" justifyContent="center" sx={{ p: 2 }}>
-        {_socials.map((social) => (
+        {sizes.map((size) => (
           <IconButton
-            key={social.name}
+            key={size}
             sx={{
-              color: social.color,
+              color: hoveredSize === size ? theme.palette.primary.main : theme.palette.text.primary,
+              fontSize: '1.5rem',
+              borderRadius: '50%',
               '&:hover': {
-                bgcolor: alpha(social.color, 0.08),
+                bgcolor: theme.palette.action.hover,
+                color: theme.palette.getContrastText(theme.palette.action.hover),
               },
             }}
+            onMouseEnter={() => handleMouseEnterSize(size)}
+            onMouseLeave={() => handleMouseLeaveSize()}
           >
-            <Iconify icon={social.icon} />
+            {size}
           </IconButton>
         ))}
       </Stack>
     </Card>
+    
   );
 }
 
-MemberCard.propTypes = {
-  member: PropTypes.object,
+ProductCard.propTypes = {
+  product: PropTypes.object,
+  sizes: PropTypes.array.isRequired,
+  theme: PropTypes.object.isRequired,
 };
+
+// Replace this function with the function to get your product data
+function getProductsData() {
+  return [
+    {
+      id: 1,
+      name: 'Product 1',
+      price: 'S/. 100',
+      imageUrl: '/path/to/product1.jpg',
+    },
+    {
+      id: 2,
+      name: 'Product 2',
+      price: 'S/. 120',
+      imageUrl: '/path/to/product2.jpg',
+    },
+    {
+      id: 3,
+      name: 'Product 3',
+      price: 'S/. 80',
+      imageUrl: '/path/to/product3.jpg',
+    },
+    {
+      id: 4,
+      name: 'Product 4',
+      price: 'S/. 80',
+      imageUrl: '/path/to/product3.jpg',
+    },
+    {
+      id: 5,
+      name: 'Product 5',
+      price: 'S/. 80',
+      imageUrl: '/path/to/product3.jpg',
+    },
+    {
+      id: 6,
+      name: 'Product 6',
+      price: 'S/. 80',
+      imageUrl: '/path/to/product3.jpg',
+    },
+    // Add more product data here
+  ];
+}

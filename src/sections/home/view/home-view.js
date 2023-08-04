@@ -12,13 +12,8 @@ import ScrollProgress from 'src/components/scroll-progress';
 import HomeHero from '../home-hero';
 import HomeMinimal from '../home-minimal';
 import HomePricing from '../home-pricing';
-import HomeDarkMode from '../home-dark-mode';
 import HomeLookingFor from '../home-looking-for';
-import HomeForDesigner from '../home-for-designer';
-import HomeColorPresets from '../home-color-presets';
-import HomeAdvertisement from '../home-advertisement';
-import HomeCleanInterfaces from '../home-clean-interfaces';
-import HomeHugePackElements from '../home-hugepack-elements';
+import AboutTeam from 'src/sections/about/about-team';
 
 // ----------------------------------------------------------------------
 
@@ -64,33 +59,14 @@ export default function HomeView() {
         {/* 2-Moda */}
         <HomeMinimal />
 
-        {/* 3-Se comenta para no utilizarlo */}
-        {/* <HomeHugePackElements /> */}
-
-        {/* 4-Se comenta para no utilizarlo */}
-        {/* <Box sx={{ position: 'relative' }}>
-          <StyledPolygon />
-          <HomeForDesigner />
-          <StyledPolygon anchor="bottom" />
-        </Box> */}
-
-        {/* 5-Se comenta para no utilizarlo */}
-        {/* <HomeDarkMode /> */}
-
-        {/* 6-Se comenta para no utilizarlo */}
-        {/* <HomeColorPresets /> */}
-
-        {/* 7-Se comenta para no utilizarlo */}
-        {/* <HomeCleanInterfaces /> */}
+        {/* About */}
+        <AboutTeam />
 
         {/* 8-Pricing */}      
         <HomePricing />
 
         {/* 9-Looking */}
         <HomeLookingFor />
-
-        {/* 9-Se comenta para no utilizarlo */}
-        {/* <HomeAdvertisement /> */}
       </Box>
     </MainLayout>
   );
