@@ -42,8 +42,22 @@ export const paths = {
     demo: {
       details: `/product/${MOCK_ID}`,
     },
-    category:{
-      polos: `/polos1`,
+    category: {
+      polos: {
+        root: `/product/category/polos`,
+        jersey301: `/product/category/polos/jersey301`,
+        jersey201: `/product/category/polos/jersey201`,
+        pima: `/product/category/polos/pima`,
+      },
+      poleras: {
+        root: `/product/category/poleras`,
+      },
+      shorts: {
+        root: `/product/category/shorts`,
+      },
+      pantalones: {
+        root: `/product/category/pantalones`,
+      },
     },
   },
   post: {
